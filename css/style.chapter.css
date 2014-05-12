@@ -260,3 +260,52 @@ ul.dashboard-list li p{
 	width: 750px;
 	*width: 750px;
 }
+
+/*discuss*/
+.discuss-guide {
+	margin: 25px;
+	height: auto;
+}
+.discuss-guide>h1 {
+	color:#5b61dc;
+	font-size: 26px;
+}
+.discuss-guide>p {
+	color: #db0000;
+	font-size: 14px;
+	margin: 20px;
+}
+.discuss-guide>p>a {
+	color: #3a7bff;
+}
+#discuss-btn-row {
+	height: auto;
+	margin-top: 0;
+	width: 750px;
+}
+.common-btn{
+	border-style: none;
+	padding-top: 7px;
+	padding-left: 15px;
+	padding-right: 20px;
+	padding-bottom: 7px;
+	margin-left: 25px;
+}
+.right-align-btn {
+	float: right;
+	border-style: none;
+	padding-top: 7px;
+	padding-left: 15px;
+	padding-right: 20px;
+	padding-bottom: 7px;
+	font-size: 14px;
+	margin-right: 25px;
+}
+.light-blue{
+	background: #3a7bff;
+	color: #fff;
+}
+.common-blue{
+	background: #5b61dc;
+	color: #fff;
+}
