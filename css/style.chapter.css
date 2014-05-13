@@ -283,6 +283,13 @@ ul.dashboard-list li p{
 	margin-top: 0;
 	width: 750px;
 }
+.btn-row{
+	margin-top: 10px;
+}
+.btn-row button img{
+	width: 24px;
+	height: 24px;
+}
 .common-btn{
 	border-style: none;
 	padding-top: 7px;
@@ -305,7 +312,257 @@ ul.dashboard-list li p{
 	background: #3a7bff;
 	color: #fff;
 }
+.light-blue:hover{
+	background: #4a8bff;
+}
 .common-blue{
 	background: #5b61dc;
 	color: #fff;
+}
+.common-blue:hover{
+	background:#6b71ec;
+}
+.discussions {
+	margin:25px;
+}
+.discussions ul {
+	list-style: none;
+	margin: 0;
+	padding: 0
+}
+
+.discussions ul li {
+	position: relative;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 1px 0 1px #e4e6eb;
+	-moz-box-shadow: 0 1px 0 1px #e4e6eb;
+	box-shadow: 0 1px 0 1px #e4e6eb;
+	background: #dfe9fe;
+	padding-left: 70px;
+	padding-right: 40px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	margin-left: 80px;
+	margin-right: 40px;
+	padding: 10px
+}
+
+.discussions ul li:before {
+	content: '';
+	width: 20px;
+	height: 20px;
+	top: 15px;
+	left: -20px;
+	position: absolute;
+	background: url("../css/images/disc-arrow.png") no-repeat;
+	background-size: 20px 20px
+}
+
+.discussions ul li .author {
+	position: absolute;
+	z-index: 1;
+	width: 60px;
+	float: left;
+	left: -70px;
+	top: 0
+}
+
+.discussions ul li .author img {
+	height: 60px;
+	-webkit-border-radius: 0em;
+	-moz-border-radius: 0em;
+	border-radius: 0em;
+	-webkit-box-shadow: 0 1px 0 1px #e4e6eb;
+	-moz-box-shadow: 0 1px 0 1px #e4e6eb;
+	box-shadow: 0 1px 0 1px #e4e6eb
+}
+
+.discussions ul li .name {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 100%;
+	background: #fbfcfc;
+	padding: 5px 10px 5px 10px;
+	-webkit-border-radius: 2px 0 0 2px;
+	-moz-border-radius: 2px 0 0 2px;
+	border-radius: 2px 0 0 2px
+}
+
+.discussions ul li .date {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	z-index: 1;
+	background: #f3f4f6;
+	padding: 5px 20px 5px 10px;
+	-webkit-border-radius: 2px 0 0 2px;
+	-moz-border-radius: 2px 0 0 2px;
+	border-radius: 2px 0 0 2px
+}
+
+.discussions ul li .delete {
+	position: absolute;
+	-webkit-border-radius: 0 2px 2px 0;
+	-moz-border-radius: 0 2px 2px 0;
+	border-radius: 0 2px 2px 0;
+	background: #e4e6eb;
+	top: 10px;
+	right: -30px;
+	padding: 5px 10px;
+	display: inline-block;
+	cursor: pointer
+}
+
+.discussions ul li .message {
+	border-bottom: 1px solid #fff;
+	margin: 20px -10px 0 -10px;
+	padding: 20px
+}
+.discussions ul li .message a,
+.discussions ul li ul li .message a{
+	float: right;
+	color: #3a7bff;
+}
+.discussions ul li .message a:hover,
+.discussions ul li ul li .message a:hover{
+	color: #000;
+}
+
+.discussions ul li ul {
+	overflow: hidden
+}
+
+.discussions ul li ul li {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-bottom: 1px solid #fff;
+	margin: 0 -10px;
+	padding-left: 70px
+}
+
+.discussions ul li ul li:before {
+	display: none
+}
+
+.discussions ul li ul li:last-child {
+	border-bottom: 0
+}
+
+.discussions ul li ul li .author {
+	top: 10px;
+	left: 10px
+}
+
+.discussions ul li ul li .author img {
+	height: 60px;
+	-webkit-border-radius: 0em;
+	-moz-border-radius: 0em;
+	border-radius: 0em;
+	-webkit-box-shadow: 0 1px 0 1px #e4e6eb;
+	-moz-box-shadow: 0 1px 0 1px #e4e6eb;
+	box-shadow: 0 1px 0 1px #e4e6eb
+}
+
+.discussions ul li ul li .name {
+	left: 70px
+}
+
+.discussions ul li ul li .date {
+	background: transparent;
+	right: 30px
+}
+
+.discussions ul li ul li .delete {
+	background: transparent;
+	right: 10px
+}
+
+.discussions ul li ul li .message {
+	border-bottom: 0;
+	margin-left:10px;
+	margin-bottom: -10px;
+}
+
+.discussions ul li ul li textarea {
+	border: 0;
+	background: #c7cbd5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	width: 98%;
+	color:#333;
+	margin-left: 10px;
+	margin-right: 10px; 
+	padding: 5px;
+}
+.discussions ul li ul li p{
+	text-align: right;
+}
+
+/*practise*/
+#practise-content-box,
+#homework-content-box {
+	margin: 25px;
+}
+#practise-content-box .box-header h2,
+#homework-content-box .box-header h2{
+	font-size: 16px;
+}
+#practise-content-box .box-header h2 img,
+#homework-content-box .box-header h2 img{
+	width: 25px;
+	height: 25px;
+	padding-bottom: 2px;
+}
+.practise-guide {
+	margin-top: 25px;
+	margin-left: 25px;
+	height: auto;
+}
+.practise-guide>h1 {
+	color:#5b61dc;
+	font-size: 26px;
+}
+.practise-guide>p {
+	color: #db0000;
+	font-size: 14px;
+	margin: 20px;
+}
+.practise-guide>p>a {
+	color: #3a7bff;
+}
+#practise-btn-row {
+	height: auto;
+	margin-top: 0;
+	width: 750px;
+}
+
+.homework{
+	margin-left:10px;
+	margin-top: 5px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+.homework h1{
+	font-size: 16px;
+	color: #000;
+}
+.homework p{
+	margin-top: 10px;
+	margin-left: 20px;
+}
+.homework .note{
+	color: #f00;
+}
+.homework .homework-textarea{
+	margin-top: 20px;
 }
