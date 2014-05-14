@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}This page shows request.META{% endblock %}
+
+{% block content %}
+{%for e in request_path%}
+<p><Br/>It shows the request.path:{{e}}<p>
+{%endfor%}
+{%for e in request_get_host%}
+<p><Br/>It shows the request.get_host:{{e}}<p>
+{%endfor%}
+{%for e in request_get_full_path%}
+<p><Br/>It shows the request.get_full_path:{{e}}<p>
+{%endfor%}
+{%for e in request_is_sucure%}
+<p><Br/>It shows the request.is_sucure:{{e}}<p>
+{%endfor%}
+
+{% endblock %}
