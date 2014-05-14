@@ -8,6 +8,8 @@ import datetime
     
 from django.shortcuts import render_to_response                               ## don't  forget to import
 
+def index(request):
+    return render_to_response('index.html', locals())
 
 #def current_datetime(request):
 #    now = datetime.datetime.now()
