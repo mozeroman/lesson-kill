@@ -9,6 +9,7 @@ import datetime
 from django.shortcuts import render_to_response                               ## don't  forget to import
 
 def index(request):
+    position_index = "other links"
     return render_to_response('index.html', locals())
 
 #def current_datetime(request):

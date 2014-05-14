@@ -15,16 +15,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ## Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = (
-        os.path.join(os.path.dirname(__file__), '../html/').replace('\\', '/'),
-        )
 STATIC_PATH = (
-        os.path.join(os.path.dirname(__file__), '../html/').replace('\\', '/'),
+        os.path.join(os.path.dirname(__file__), '../static/').replace('\\', '/'),
         )
-STATIC_URL = '/html/'
-#STATIC_URL = '/static/'
+#STATIC_URL = '/html/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-        os.path.join(os.path.dirname(__file__), '../html/').replace('\\', '/'),
+        os.path.join(os.path.dirname(__file__), '../static/').replace('\\', '/'),
         )
 ##
 
