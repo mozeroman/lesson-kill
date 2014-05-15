@@ -24,3 +24,9 @@ def search(request):
             return render_to_response('search_result.html', {'books': books, 'query': q})
 
     return render_to_response('search_form.html', {'errors': errors})
+
+def object_list(request, model):
+    obj_list = model.objects.all()
+    template_name = 'books/%s_list.html' % model.__name__.lower() #open books/account_list.html which doesn't exist
+    return render_to_response(template_name, {'object_list': obj_list})
+
