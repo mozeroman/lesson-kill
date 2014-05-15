@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>LessonKill软件工程</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" href="/static/css/images/favicon.ico" />
+	
+	<!-- Apple iOS Settings -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+	<!-- <link rel="apple-touch-icon-precomposed" href="http://demo.scheetzdesigns.com/gymboom/html/css/images/ios_icon.png" /> -->
+	
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/static/css/flexslider.css" type="text/css" media="all" type="text/css" />
+	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter:400italic|Exo:400,800" media="all" type="text/css" /> -->
+	<link rel="stylesheet" href="/static/css/reset.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="all" type="text/css" />
+	<link rel="stylesheet" href="/static/css/responsive.css" type="text/css" media="all" type="text/css" />
+	
+	<!-- Customization CSS - Edit this file to change the look & feel -->
+	<link rel="stylesheet" href="/static/css/customize.css" type="text/css" media="all" type="text/css" />
+	
+	<!-- Modernizr, for IE compatibility -->
+	<script src="/static/js/modernizr.js" type="text/javascript"></script>
+	<!--[if gte IE 9]>
+  	<style type="text/css">
+  	  .button, .button:hover, .button.grey, .button.grey:hover {
+  	     filter: none;
+  	  }
+  	</style>
+<![endif]-->
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<section id="wrap">
+		<header>
+			<section class="shell">
+				<h1 id="logo"><a href="./index.html"><img src="/static/css/images/logo.png" alt="" /></a></h1>
+				<h1 id="site_caption"><img alt="" src="/static/css/images/title.png"></h1>
+
+				<nav>
+					<ul>
+						<li>
+							<a href="./index.html">{{ position_index }}<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
+							<section class="dropdown">
+								<ul>
+									<li id="indexposbt_prelong"><a href="./index.html">课程简介</a></li>
+									<li id="indexposbt_stats"><a href="./index.html">课程当前统计信息 </a>
+									</li>
+									<li id="indexposbt_course"><a href="./index.html">课程计划</a></li>
+									<li id="indexposbt_question"><a href="./index.html">常问问题</a></li>
+									<li id="indexposbt_teacher"><a href="./index.html">教师资料</a></li>
+									<li id="indexposbt_links"><a href="./index.html">相关链接</a></li>
+								</ul>
+							</section>
+						</li>
+						<!-- <li><a href="./login.html">登录</a></li> -->
+						<li>
+							<a href="./chapter-study.html">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
+							<section class="dropdown">
+								<ul>
+									<li><a href="./chapter-study.html">学习区</a></li>
+									<li><a href="./chapter-practise.html">作业区</a></li>
+									<li><a href="./chapter-test.html">测试区</a></li>
+									<li><a href="./chapter-discuss.html">讨论区</a></li>
+									<li><a href="./index-unlogin.html">注销</a></li>
+								</ul>
+							</section>
+						</li>
+					</ul>
+				</nav>
+				
+				<div id="mobile-nav">
+					<ul>
+						<li>
+							<a href="./index.html">位置</a>
+							<ul>
+								<li><a href="./index.html">课程简介</a></li>
+								<li><a href="./index.html">课程当前统计信息</a></li>
+								<li><a href="./index.html">课程计划</a></li>
+								<li><a href="./index.html">常问问题</a></li>
+								<li><a href="./index.html">教师资料</a></li>
+								<li><a href="./index.html">相关链接</a></li>
+							</ul>
+						</li>
+						<!-- <li><a href="./login.html">登录</a></li> -->
+						<li>
+							<a href="./chapter-study.html">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
+							<section class="dropdown">
+								<ul>
+									<li><a href="./chapter-study.html">学习区</a></li>
+									<li><a href="./chapter-practise.html">作业区</a></li>
+									<li><a href="./chapter-test.html">测试区</a></li>
+									<li><a href="./chapter-discuss.html">讨论区</a></li>
+									<li><a href="./index-unlogin.html">注销</a></li>
+								</ul>
+							</section>
+						</li>
+					</ul>
+					
+					<a class="mobile-nav-toggle">+</a>
+				</div>
+				
+			</section>
+		</header>
+
+		<section id="slider">
+			<section class="image-slider">
+				<ul class="slides">
+					<li>
+						<div id="courseVideoDiv" class="video_index_introduction">
+							<video id="courseVideo" class="vjs" data-setup="{}" poster="/static/css/images/introductionVideo.png" preload="undefined"></video>
+						</div>
+					</li>
+					<!-- <li><img src="./css/images/slide3.jpg" alt="" /></li> -->
+				</ul>
+			</section>
+			<section class="text-slider">
+				<ul>
+					<li>
+						<h2>课程简介</h2>
+						<h3> &nbsp; &nbsp;<a href="http://www.nankai.edu.cn">南开大学</a> <a href="http://cs.nankai.edu.cn">软件学院</a> 示范课程</h3>
+						<p> &nbsp; &nbsp;软件工程是是以工程化的思想和方法来指导软件开发的整个过程的学科，具有鲜明的实践性。近年来在计算机和信息管理等领域中，它的地位显得越来越重要。不仅大型软件项目离不开它，就是一般的，甚至小型软件项目也必须运用它的概念、原则和方法。近年来，软件工程学科发生了巨大变化，从传统的结构化技术占主导地位，发展到面向对象技术占主导地位，继而发展到基于构件的技术成为开发技术主流。</p>
+					</li>
+					<!--<li>
+						<h2>FINAL SLIDE.</h2>
+						<h3>The last subhead.</h3>
+						<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua incididunt ut labore et dolore magna aliqua incididunt consectetur adipisicing.</p>
+
+						<a href="#" class="button">Join Today - <strong>$5/Week</strong></a>
+					</li> -->
+				</ul>
+			</section>
+			<section class="elements">
+				<!-- <span class="white-box"></span> -->
+				<span class="top-corner"></span>
+				<!-- <span class="bottom-corner"></span> -->
+			</section>
+		</section>
+
+		<section id="statistics">
+			<section class="bigshell">
+				<section class="one_half">
+					<h2>课程统计信息</h2><img src="/static/css/images/index_statsicon.png">
+					<p>课时：8-10小时/周</p>
+					<p>学习量：n章，m次测试，l次作业，获得软件工程师认证</p>
+				</section>
+				<section class="one_half last">
+					<p>学生：已有x个同学报名该课程，其中y个同学完成了课程，z个同学得到了证书</p>
+					<h3><a href="./chapter-study.html">继续学习></a></h3>
+					<p>老师：有a位老师为此课程提供教学资源，有b位专业资深人士贡献课程资源</p>
+					<h3><a href="./administrator.html">教师入口></a></h3>
+				</section>
+			</section>
+		</section>
+
+		<section id="bottom">
+			<section class="shell">
+				<ul class="widgets">
+					<li class="recent-widget one_third">
+						<h3>FAQ</h3>
+						<section class="container">
+							<ul class="slides">
+								<li>
+									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
+									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+
+									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
+
+									<a href="#" class="continue">查看全部内容</a>
+								</li>
+								<li>
+									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
+									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+
+									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
+
+									<a href="#" class="continue">查看全部内容</a>
+								</li><li>
+									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
+									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+
+									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
+
+									<a href="#" class="continue">查看全部内容</a>
+								</li><li>
+									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
+									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+
+									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
+
+									<a href="#" class="continue">查看全部内容</a>
+								</li>
+							</ul>
+						</section>
+					</li>
+					<li class="upcoming-widget one_third">
+						<h3>章节列表</h3>
+						<section class="container">
+							<ul class="slides">
+								<li><a href="chapter-study.html"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第二章</span> <strong>Software Process</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第三章</span> <strong>Project Management</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第四章</span> <strong>System Analysis</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第五章</span> <strong>Requirement Engineer</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第六章</span> <strong>Software Design</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/current.png" alt="" /></span> <span class="right">第七章</span> <strong>User Interface Design</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第八章</span> <strong>Coding</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第九章</span> <strong>Software Test</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第十章</span> <strong>Software Quality Management</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第十一章</span> <strong>Software Configuration Management</strong></a></li>
+								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第十二章</span> <strong>Software Maintainance</strong></a></li>
+							</ul>
+						</section>
+					</li>
+					<li class="tweets-widget one_third last" id="fitness">
+						<h3>板块</h3>
+						<section class="container">
+							<ul class="slides">
+								<li id="forumbt"><a href="./forum.html"><img src="/static/css/images/forum.png" alt="blublu讨论区" /></a></li>
+								<li id="homeworkbt"><a href="./homework.html"><img src="/static/css/images/homework.png" alt="blublu讨论区" /></a></li>
+								<li id="testbt"><a href="./test.html"><img src="/static/css/images/test.png" alt="blublu讨论区" /></a></li>
+							</ul>
+						</section>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section id="testimonials">
+			<h2>主讲教师</h2>
+			<ul class="slides">
+				<li>
+					<section class="shell">
+						<img src="/static/css/images/avatar.png" alt="" />
+						<h3>南开大学软件学院 副教授 博士生导师<br>研究方向：生物信息、图像处理、模式识别、软件工程教授课程：《软件工程》《数字图像处理》《基于CDIO理念的软件工程课程教学改革与实践》</h3>
+						<p><a href="./introduction.html"><strong>怎么是他！去看看他的介绍></strong></a></p>
+					</section>
+				</li>
+			</ul>
+		</section>
+
+		<section id="footer-push"></section>
+	</section>
+
+	<footer>
+		<section class="top">
+			<section class="shell">
+				<ul>
+					<li class="one_third">
+						<h3>相关机构</h3>
+						<a href="http://www.nankai.edu.cn"><img src="/static/css/images/organization_logo.png">
+						</img><p>南开大学</p></a>
+					</li>
+					<li class="one_third">
+						<div class="contact-widget">
+							<h3>其他机构相同公开课</h3>
+							<ul>
+								<li><span class="right"></span> <a href="#">软件工程 卡内基梅隆大学公开课</a></li>
+								<li><span class="right"></span> <a href="#">软件工程 清华大学公开课</a></li>
+								<li><a href="#">软件工程 浙江大学公开课</a></li>
+								<li><a href="#">软件工程 上海交通大学公开课</a></li>
+								<li><a href="#">软件工程 百度百科</a></li>
+							</ul>
+		
+							<!-- <ul class="socials">
+								<li class="facebook"><a href="#">Facebook</a></li>
+								<li class="twitter"><a href="#">Twitter</a></li>
+								<li class="linkedin"><a href="#">LinkedIn</a></li>
+								<li class="vimeo"><a href="#">Vimeo</a></li>
+								<li class="youtube"><a href="#">YouTube</a></li>
+								<li class="rss"><a href="#">RSS</a></li>
+							</ul> -->
+						</div>
+					</li>
+					<li class="one_third last">
+						<div class="schedule-widget">
+							<h3>其他相关课程</h3>
+		
+							<ul>
+								<li><span class="right"></span> <a href="#">软件过程管理</a></li>
+								<li><span class="right"></span> <a href="#">软件需求分析</a></li>
+								<li><span class="right"></span> <a href="#">UML建模与实践</a></li>
+								<li><span class="right"></span> <a href="#">软件工程师</a></li>
+								<li><span class="right"></span> <a href="#">系统架构师</a></li>
+								<li><span class="right"></span> <a href="#">团队工程</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="bottom">
+			<section class="shell">
+				<p><a href="#wrap" id="back-to-top" class="right">Back to Top</a> &copy; 版权所有 &copy; 南开大学软件学院hlm<a target="_blank" href="http://sc.chinaz.com/moban/"> 去站长素材可以看到此网站的&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+			</section>
+		</section>
+	</footer>
+	
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+	
+	<!-- scripts concatenated and minified via build script -->
+	<script src="/static/js/jquery.easing.1.3.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.carouFredSel-5.6.2.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.flexslider.min.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.tweet.js" type="text/javascript"></script>
+	<script src="/static/js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+	<script src="/static/js/jquery.func.js" type="text/javascript"></script>
+	<!-- end scripts -->
+</body>
+</html>
