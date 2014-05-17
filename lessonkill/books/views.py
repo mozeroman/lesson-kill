@@ -30,3 +30,35 @@ def object_list(request, model):
     template_name = 'books/%s_list.html' % model.__name__.lower() #open books/account_list.html which doesn't exist
     return render_to_response(template_name, {'object_list': obj_list})
 
+import datetime
+from django.shortcuts import get_object_or_404
+from django.views.generic import list_detail
+from lessonkill.books.models import Author
+
+def author_detail(request, author_id):
+    # Delegate to the generic view and get an HttpResponse.
+    response = list_detail.object_detail(
+        request,
+        queryset = Author.objects.all(),
+        object_id = author_id,
+    )
+
+    # Record the last accessed date. We do this *after* the call
+    # to object_detail(), not before it, so that this won't be called
+    # unless the Author actually exists. (If the author doesn't exist,
+    # object_detail() will raise Http404, and we won't reach this point.)
+    now = datetime.datetime.now()
+    Author.objects.filter(id=author_id).update(last_accessed=now)
+
+    return response
+
+def author_list_plaintext(request):
+    response = list_detail.object_list(
+            request,
+            queryset = Author.objects.all(),
+            mimetype = 'text/plain',
+            template_name = 'books/author_list.txt'
+            )
+    response["Content-Disposition"] = "attachment; filename=authors.txt" #tell web-browser to download this page instead giving a view
+    return response
+
