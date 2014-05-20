@@ -6,8 +6,7 @@ from lessonkill.books.models import Book
 #def search(request):
 #    if 'q' in request.GET:
 #        message = 'You searched for: %r' % request.GET['q']
-#    else:
-#        message = 'You submitted an empty form.'
+#    else: #        message = 'You submitted an empty form.'
 #    return HttpResponse(message)
 # comments end
 
@@ -29,6 +28,16 @@ def object_list(request, model):
     obj_list = model.objects.all()
     template_name = '%s_list.html' % model.__name__.lower() #open books/account_list.html which doesn't exist
     return render_to_response(template_name, {'object_list': obj_list})
+
+from django.db import connection
+
+def account_list(request):
+    db = MySQLdb.connect(user='root', db='django.db.backends.mysql', passwd='1112611', host='localhost')
+    cursor = connetion.cursor()
+    cursor.execute('SELECT name FROM accounts ORDER BY name')
+    object_list = [row[0] for row in cursor.fetchall()]
+    db.close()
+    return render_to_response('account_list.html', {'object_list': object_list})
 
 import datetime
 from django.shortcuts import get_object_or_404

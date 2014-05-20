@@ -90,7 +90,6 @@ if settings.DEBUG:
             url(r'meta/$', view.display_meta),
             url(r'request/$', view.display_request),
             url(r'search/$', views.search),
-            url(r'search_account/$', search.search_account),
             url(r'contact/$', 'lessonkill.contact.views.contact'),
 
             url(r'mydata/birthday/$', view.my_view, {'month': 'apr', 'day': '09'}),
@@ -100,6 +99,7 @@ if settings.DEBUG:
 
             url(r'^publisher/$', views.object_list, {'model': models.Publisher}), #import books.model and books. views
             url(r'^accounts/$', views.object_list, {'model': models.Account}), #import books.model and books. views
+            url(r'^search_account/$', search.search_account),       #Opencourse works
 
             url(r'^somepage/$', view.some_page),
             url(r'^somepage2/$', view.method_splitter, {'GET': view.some_page_get, 'POST': view.some_page_post}),
@@ -111,4 +111,5 @@ if settings.DEBUG:
             url(r'^accounts/logout/$', logout, {'template_name': 'logout.html'}),
 
             url(r'^register/$', view.register, {'template_name': 'register.html_template'}),
+            url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html_template'}),
             )
