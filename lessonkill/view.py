@@ -144,13 +144,136 @@ def some_page_post(request):
 
 ##} link to another dirct or show html
 
-from django http import Http404
+from django.http import Http404
 from django.template import TemplateDoesNotExist
-from django.views.generic.simple import direct_to_template
+#from django.views.generic.simple import direct_to_template
+#from django.views.generic.simple import direct_to_template
 ##about_pages
 def about_pages(request, page):
     try:
-        return direct_to_template(request, template="about/%s.html" % page)
+#        return direct_to_template(request, template="about/%s.html" % page)
+        return HttpResponse("direct_to_template is missing")
     except TemplateDoesNotExist:
         raise Http404()
                 
+def post_comment(request):
+    if request.method != 'POST':
+        raise Http404('Only POSTs are allowed')
+
+    if 'comment' not in request.POST:
+        raise Http404('Comment not submitted')
+
+    c = comments.Comment(comment = request.POST['comment'])
+    c.save()
+    request.session['has_commented'] = True
+    return HttpResponse('Thanks for your comment!')
+
+def login(request):
+    if request.method != 'POST':
+        raise Http404('Only POSTs are allowed')
+        #request.session.set_test_cookie()
+        #return render_to_response('login.html')
+    try:
+        if request.session.test_cookie_worked(): 
+            request.session.delete_test_cookie()
+
+            m = Member.objects.get(username = request.POST['username'])
+            if m.password == request.POST['password']:
+                request.session['member_id'] = m.id
+                return HttpResponseRedirect('/you-are-logged-in')
+        else:
+            return HttpResponse("Please enable cookies and try again.")
+    except Member.DoesNotExist:
+        return HttpResponse("Your username and password didn't match.")
+
+def logout(request):
+    try:
+        del request.session['member_id']
+    except KeyError:
+        pass
+    return HttpResponse("You're logged out.")
+
+from django.contrib import auth
+
+def login_view(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    user = auth.authenticate(username = username, password = password)
+    if user is not None and user.is_active:
+        auth.login(request, user)       #Correct password, and the user is marked "active"
+        return HttpResponseRedirect("/account/loggedin/") #Redirect to a success page.
+    else:
+        return HttpResponseRedirect("/account/invalid") #Show an error page
+
+def logout_view(request):
+    auth.logout(request)
+    return HttpResponseRedirect("/account/loggedout/") #Redirect to a success page.
+
+def my_view1(request):       #login example
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/accounts/login/?next=%s' % request.path)
+    # ...
+    return HttpResponse("this is an example for login view")
+
+from django.contriv.auth.decorators import login_required
+
+@login_required
+def my_view2(request):
+    # ...
+    return HttpResponse("this is another example for login view")
+
+def vote(request):
+    if request.user.is_authenticated() and request.user.has_perm('polls.can_vote'):
+        # vote here
+    else:
+        return HttpResponse("You can't vote in this poll.")
+
+def user_can_vote(user):
+    return user.is_authenticated() and user.has_perm("polls.can_vote")
+
+@user_passes_test(user_can_vote, login_url="/login/")
+def vote1(request):
+    #Code here can assume a logged-in user with the corrent permission
+    #...
+    return HttpResponse("Thank you for your vote.")
+#also work as:
+
+from django.contrib.auth.decorators import permission_required
+
+@permission_required('polls.can_vote', login_url="/login/")
+def vote2(request):
+    #Code here can assume a logged-in user with the corrent permission
+    #...
+    return HttpResponse("Thank you for your vote.")
+
+from django.contrib.auth.decorators import login_required
+from django.views.generic.date_based import object_detail
+
+@login_required
+def limited_object_detail(*args, **kwargs):
+    return object_detail(*args, **kwargs)
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
+
+def register(request, template_name):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect("/books/")
+    else:
+        form = UserCreationForm()
+    return render_to_response(template_name, {
+        'form': form,
+        })
+
+def create_playlist(request, songs):
+    request.user.message_set.create(
+            message = "Your playlist was added successfully."
+            )
+    return render_to_response("playlists/create.html",
+            context_instance = RequestContextt(request))
+

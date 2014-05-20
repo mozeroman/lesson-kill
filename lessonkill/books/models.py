@@ -70,7 +70,7 @@ class PersonManager(models.Manager):
             WHERE last_name = %s""", [last_name])
         return [row[0] for row in cursor.fetchone()]
 
-from django.contrib.localflavor.us.models import USStateField
+#from django.contrib.localflavor.us.models import USStateField
 
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
@@ -79,7 +79,7 @@ class Person(models.Model):
     birth_date = models.DateField()
     address = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
-    state = USStateField() # Yes, this is U.S.-centric...
+#    state = USStateField() # Yes, this is U.S.-centric...
 
     def baby_boomer_status(self):
         "Returns the person's baby-boomer status."

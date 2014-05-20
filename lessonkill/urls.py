@@ -1,3 +1,5 @@
+from django.contrib.auth.views import login, logout # professional login logout
+
 from django.conf.urls import patterns, include, url
 from lessonkill import view
 from lessonkill.books import views, search, models
@@ -8,7 +10,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 #from django.conf.urls. import *
-from django.views.generic.simple import direct_to_template
+# generic is missing
+#from django.views.generic.simple import direct_to_template
 
 
 
@@ -19,7 +22,7 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
 
-    from django.views.generic import list_detail
+    #from django.views.generic import list_detail
     from lessonkill.books.models import Publisher, Book
 
     def get_books():
@@ -42,7 +45,7 @@ if settings.DEBUG:
             }
 
     from django.shortcuts import get_object_or_404
-    from django.views.generic import list_detail
+    #from django.views.generic import list_detail
     from lessonkill.books.models import Book, Publisher
 
     def books_by_publisher(request, name):
@@ -58,16 +61,16 @@ if settings.DEBUG:
                 extra_context = {'publisher': publisher}
                 )
 
-    from lessonkill.books.views import author_detail, author_list_plaintext
+   # from lessonkill.books.views import author_detail, author_list_plaintext
     urlpatterns += patterns('',
-            url(r'^publishers/$', list_detail.object_list, publisher_info), #publisher_info define above
-            url(r'^books/$', list_detail.object_list, book_info),
-            url(r'^books/apress/$', list_detail.object_list, apress_books),
+          #  url(r'^publishers/$', list_detail.object_list, publisher_info), #publisher_info define above
+          #  url(r'^books/$', list_detail.object_list, book_info),
+          #  url(r'^books/apress/$', list_detail.object_list, apress_books),
 
             url(r'^book/(\w+)/$', books_by_publisher),
 
-            url(r'^authors/(?P<author_id>\d+)/$', author_detail),
-            url(r'^authors/plain/$', author_list_plaintext),
+          #  url(r'^authors/(?P<author_id>\d+)/$', author_detail),
+          #  url(r'^authors/plain/$', author_list_plaintext),
 
             url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH, 'show_indexes':True}),  
             ## js, css, pics, import
@@ -101,7 +104,11 @@ if settings.DEBUG:
             url(r'^somepage/$', view.some_page),
             url(r'^somepage2/$', view.method_splitter, {'GET': view.some_page_get, 'POST': view.some_page_post}),
 
-            url(r'^about/$', view.direct_to_template, {'template', 'about.html'}),
-            url(r'^about/(\w+)/$', about_pages),
+            # url(r'^about/$', view.direct_to_template, {'template', 'about.html'}),
+            # url(r'^about/(\w+)/$', about_pages),
 
+            url(r'^accounts/login/$', login, {'template_name': 'login.html_template'}),
+            url(r'^accounts/logout/$', logout, {'template_name': 'logout.html'}),
+
+            url(r'^register/$', view.register, {'template_name': 'register.html_template'}),
             )

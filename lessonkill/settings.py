@@ -44,7 +44,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 TEMPLATE_DIRS = (
         #'../html/',
-        os.path.join(os.path.dirname(__file__), '../html').replace('\\', '/'),#../html
+        os.path.join(os.path.dirname(__file__), '../static').replace('\\', '/'),#../html
         os.path.join(os.path.dirname(__file__), 'html').replace('\\', '/'),#../html
         )
 
