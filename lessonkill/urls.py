@@ -3,6 +3,7 @@ from django.contrib.auth.views import login, logout # professional login logout
 from django.conf.urls import patterns, include, url
 from lessonkill import view
 from lessonkill.books import views, search, models
+from lessonkill.blog.views import blog
 #from coursekill.contact.views import  contact
 from  django.conf import settings
 
@@ -111,5 +112,7 @@ if settings.DEBUG:
             url(r'^accounts/logout/$', logout, {'template_name': 'logout.html'}),
 
             url(r'^register/$', view.register, {'template_name': 'register.html_template'}),
-            url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html_template'}),
+            url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html'}),
+            
+            url(r'^blog/$', blog, {'template_name': 'blog.html'}),
             )

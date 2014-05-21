@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+  {% if errors %}
+  <ul>
+    {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h1>Create an account</h1>
+
+  <form action="" method="post" >
+      <li>  Username*: <input type="text" name="user_name"></li>
+      <li>  Password*: <input type="text" name="psw"> Note: Password should be longer than six digits.</li>
+      <li>  Comfirm Password*: <input type="text" name="psw_comfirm"></li>
+      <li>  Signature: <input type="text" name="signature"></li>
+      <li>  You must complete information with *.</li>
+      <li><input type="submit" value="Create the account"></li>
+  </form>
+
+{% endblock %}

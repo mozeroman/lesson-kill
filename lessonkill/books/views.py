@@ -27,7 +27,10 @@ def search(request):
 def object_list(request, model):
     obj_list = model.objects.all()
     template_name = '%s_list.html' % model.__name__.lower() #open books/account_list.html which doesn't exist
-    return render_to_response(template_name, {'object_list': obj_list})
+    if request.method == 'POST':
+        return render_to_response(template_name, {'object_list': obj_list})
+    else:
+        return render_to_response(template_name, {'object_list': obj_list})
 
 from django.db import connection
 

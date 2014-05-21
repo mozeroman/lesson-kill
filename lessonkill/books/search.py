@@ -26,26 +26,31 @@ def search_account(request):
     return render_to_response('search_account.html', {'errors': errors})
 
 def account_register(request, template_name):
-    account = Account()
-    errors = []
     if request.method == 'POST':
-        if 'name' in request.POST:
-            account.username = request.GET['name']
+        account = Account()
+        errors = []
+        if 'user_name' in request.POST:
+            account.username = request.POST['user_name']
+            #username = request.GET['user_name']
             try:
                 p = Account.objects.get(username=account.username)
                 errors.append('Username already exist')
-            except Publisher.DoesNotExist:
+            except Account.DoesNotExist:
                 pass
 
         if 'psw' in request.POST:
-            psw = request.GET['psw']
+            psw = request.POST['psw']
+            if len(psw) < 6:
+                errors.append("Password should longer than 6 digits")
         else:
             errors.append('Password should not be empty')
 
         if 'psw_comfirm' in request.POST:
-            psw_comfirm = request.GET['psw']
+            psw_comfirm = request.POST['psw']
             if psw_comfirm != psw:
                 errors.append('Password not match')
+            else:
+                account.password = psw_comfirm
         else:
             errors.append('Password not match')
 
@@ -62,7 +67,7 @@ def account_register(request, template_name):
             return HttpResponseRedirect("/accounts/")
     else:
         return render_to_response(template_name, {
-            'errors' : errors,
+            #'errors' : errors,
             })
         #Publisher.objects.filter(country='USA').delete() ##for delete
 

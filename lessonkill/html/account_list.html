@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Accounts</h2>
-    <ul>
+<h2>Accounts</h2>
+<ul>
+    <form action="" method="post">
         {% for account in object_list %}
-            <li>{{ publisher.name }}</li>
+        <li>{{ account.username }} <input type="submit" value="删除 {{ account.username }}" name={{publisher.id}}></li>
         {% endfor %}
-    </ul>
+    </form>
+</ul>
 {% endblock %}

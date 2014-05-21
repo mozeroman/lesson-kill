@@ -10,11 +10,12 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__)).replace('\\', '/')
 
 ## Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATIC_ROOT = '' # can't delete it or /admin/ can't loaded
 STATIC_PATH = (
         os.path.join(os.path.dirname(__file__), '../static/').replace('\\', '/'),
         )
@@ -64,6 +65,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     #'lessonkill.products',
     'lessonkill.books',
+    'django.contrib.redirects',
+    'lessonkill.blog',
     )
 
 SITE_ID = 1 #for error, with django.contrib.cites
@@ -71,10 +74,11 @@ SITE_ID = 1 #for error, with django.contrib.cites
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware', # don't know how it works
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'lessonkill.urls'
@@ -88,12 +92,13 @@ WSGI_APPLICATION = 'lessonkill.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME': 'test', #should create a db in mysql first
         'USER': 'root',
         'PASSWORD': '1112611',
         'HOST': 'localhost',
         'PORT': '8016',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(os.path.dirname(__file__), 'sqlite3/mydata.db').replace('\\', '/'),
     }
 }
 
