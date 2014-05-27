@@ -1,6 +1,15 @@
 from django.shortcuts import  render_to_response
-from django.http import HttpResponse
-from lessonkill.books.models import Book
+from django.http import HttpResponse, HttpResponseRedirect
+from lessonkill.books.models import Book, Account
+
+def object_list(request, model):
+    obj_list = model.objects.all()
+    template_name = '%s_list.html' % model.__name__.lower() #open books/account_list.html which doesn't exist
+    if request.method == 'POST':
+        for key in request.POST:
+            return HttpResponseRedirect('/edit_account/' + key + '/')
+
+    return render_to_response(template_name, {'object_list': obj_list})
 
 # comments start only check input
 #def search(request):
@@ -24,13 +33,6 @@ def search(request):
 
     return render_to_response('search_form.html', {'errors': errors})
 
-def object_list(request, model):
-    obj_list = model.objects.all()
-    template_name = '%s_list.html' % model.__name__.lower() #open books/account_list.html which doesn't exist
-    if request.method == 'POST':
-        return render_to_response(template_name, {'object_list': obj_list})
-    else:
-        return render_to_response(template_name, {'object_list': obj_list})
 
 from django.db import connection
 

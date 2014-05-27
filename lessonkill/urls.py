@@ -14,6 +14,11 @@ admin.autodiscover()
 # generic is missing
 #from django.views.generic.simple import direct_to_template
 
+from lessonkill.books import search
+
+urlpatterns = patterns('',
+        url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html'}),
+)
 
 
 urlpatterns = patterns('',
@@ -113,6 +118,7 @@ if settings.DEBUG:
 
             url(r'^register/$', view.register, {'template_name': 'register.html_template'}),
             url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html'}),
+            url(r'^edit_account/(?P<account_id>\w+)/$', search.account_edit, {'template_name': 'account_register.html'}),
             
             url(r'^blog/$', blog, {'template_name': 'blog.html'}),
             )

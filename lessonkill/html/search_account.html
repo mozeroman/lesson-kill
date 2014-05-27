@@ -2,7 +2,6 @@
     <head>
         <title>Search</title>
     </head>
-
     <body>
         {% if errors %}
         <ul>
@@ -15,8 +14,6 @@
             <input type="text" name="q">
             <input type="submit" value="Search">
         </form>
-
-
         {% if accounts %}
         <p>You searched for: <strong>{{ query }}</strong></p>
         <p>Found {{ accounts|length }} accounts{{ accounts|pluralize }}.</p>
@@ -27,8 +24,7 @@
             {% endfor %}
         </ul>
         {% else %}
-        <p>No books matched your search criteria.</p>
+        <p>No accounts matched your search criteria.</p>
         {% endif %}
-
     </body>
 </html>
