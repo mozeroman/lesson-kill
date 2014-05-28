@@ -24,6 +24,7 @@ urlpatterns = patterns('',
         url(r'^register/$', views.register, {'template_name': 'register.html_template'}),
         url(r'^login/$', login, {'template_name': 'login.html_template'}),
         url(r'^logout/$', logout, {'template_name': 'logout.html'}),
+        url(r'^accounts/profile/$', views.user_profile),
 
         #index
         url(r'^$', index.index),

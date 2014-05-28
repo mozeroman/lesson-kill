@@ -13,11 +13,14 @@ def index(request):
 
     position_index = "课程概况"
 
-    mainindex = Mainindex.objects.get(display_on_index = True)
-    class_name = mainindex.class_name
-    class_introduction = mainindex.class_introduction
-    class_duration = mainindex.class_duration
-    class_outline = mainindex.class_outline
+    try:
+        mainindex = Mainindex.objects.get(display_on_index = True)
+        class_name = mainindex.class_name
+        class_introduction = mainindex.class_introduction
+        class_duration = mainindex.class_duration
+        class_outline = mainindex.class_outline
+    except Mainindex.DoesNotExist:
+        pass
 
     student_count = 10;
     stu_finish_count = 9;

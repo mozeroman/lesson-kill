@@ -28,6 +28,9 @@ def index(request):
     position_index = "other links"
     return render_to_response('index.html', locals())
 
+def user_profile(request):
+    return HttpResponseRedirect('/../../')
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
