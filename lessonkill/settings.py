@@ -41,6 +41,7 @@ SECRET_KEY = '#2zza2@ncn#tc$u0^m1sdv=9zr*u4k#bq4-6xewtztcl*2_cnb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+TEST_DEBUG = False
 
 TEMPLATE_DEBUG = True
 TEMPLATE_DIRS = (
@@ -64,9 +65,11 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     #'lessonkill.products',
-    'lessonkill.books',
+    #'lessonkill.books',
     'django.contrib.redirects',
-    'lessonkill.blog',
+    #'lessonkill.blog',
+    'lessonkill.index',
+    'lessonkill.chapter',
     )
 
 SITE_ID = 1 #for error, with django.contrib.cites
@@ -74,7 +77,7 @@ SITE_ID = 1 #for error, with django.contrib.cites
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware', # don't know how it works
+    'django.middleware.csrf.CsrfViewMiddleware', # don't know how it works
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -105,7 +108,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
+DEFAULT_CHARSET = 'utf-8'
 
 TIME_ZONE = 'UTC'
 

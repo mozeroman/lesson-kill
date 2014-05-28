@@ -1,10 +1,8 @@
 from django.contrib.auth.views import login, logout # professional login logout
-
 from django.conf.urls import patterns, include, url
-from lessonkill import view
-from lessonkill.books import views, search, models
-from lessonkill.blog.views import blog
-#from coursekill.contact.views import  contact
+from lessonkill import views
+from lessonkill.index import index
+from lessonkill.chapter import chapter
 from  django.conf import settings
 
 from django.contrib import admin
@@ -14,19 +12,33 @@ admin.autodiscover()
 # generic is missing
 #from django.views.generic.simple import direct_to_template
 
-from lessonkill.books import search
-
 urlpatterns = patterns('',
-        url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html'}),
-)
+        #css, js, png...
+        url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH, 'show_indexes':True}),  
 
+        #admin
+        url(r'^admin/', include(admin.site.urls)),
 
-urlpatterns = patterns('',
-    url(r'^$', view.index),
-    url(r'^admin/', include(admin.site.urls)),
-)
+        #user
+        url(r'^register/$', views.register, {'template_name': 'register.html_template'}),
+        url(r'^login/$', login, {'template_name': 'login.html_template'}),
+        url(r'^logout/$', logout, {'template_name': 'logout.html'}),
 
-if settings.DEBUG:
+        #index
+        url(r'^$', index.index),
+        #url(r'^static/index.html/$', index.index_redirect),
+
+        #chapter
+        url(r'^chapter-study/$', chapter.chapter_study),
+        url(r'^chapter-practise/$', chapter.chapter_practise),
+        url(r'^chapter-test/$', chapter.chapter_test),
+        url(r'^chapter-discuss/$', chapter.chapter_discuss),
+        )
+
+if settings.TEST_DEBUG:
+    from lessonkill import view
+    from lessonkill.books import views, search, models
+    from lessonkill.blog.views import blog
 
     #from django.views.generic import list_detail
     from lessonkill.books.models import Publisher, Book
@@ -78,7 +90,7 @@ if settings.DEBUG:
           #  url(r'^authors/(?P<author_id>\d+)/$', author_detail),
           #  url(r'^authors/plain/$', author_list_plaintext),
 
-            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH, 'show_indexes':True}),  
+#            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH, 'show_indexes':True}),  
             ## js, css, pics, import
             #url( r'^html/(?P<path>.*)$', 'django.views.static.serve', { 'document_root':settings.STATIC_ROOT }),
             #url(r'^css/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.CSS_ROOT }),
@@ -113,10 +125,7 @@ if settings.DEBUG:
             # url(r'^about/$', view.direct_to_template, {'template', 'about.html'}),
             # url(r'^about/(\w+)/$', about_pages),
 
-            url(r'^accounts/login/$', login, {'template_name': 'login.html_template'}),
-            url(r'^accounts/logout/$', logout, {'template_name': 'logout.html'}),
 
-            url(r'^register/$', view.register, {'template_name': 'register.html_template'}),
             url(r'^account_register/$', search.account_register, {'template_name': 'account_register.html'}),
             url(r'^edit_account/(?P<account_id>\w+)/$', search.account_edit, {'template_name': 'account_register.html'}),
             

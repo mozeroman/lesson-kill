@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>LessonKill软件工程</title>
+    <title>{{ class_name }}</title>
 	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="/static/css/images/favicon.ico" />
 	
@@ -38,13 +38,13 @@
 	<section id="wrap">
 		<header>
 			<section class="shell">
-				<h1 id="logo"><a href="/static/index.html"><img src="/static/css/images/logo.png" alt="" /></a></h1>
+				<h1 id="logo"><a href=""><img src="/static/css/images/logo.png" alt="" /></a></h1>
 				<h1 id="site_caption"><img alt="" src="/static/css/images/title.png"></h1>
 
 				<nav>
 					<ul>
 						<li>
-							<a href="/static/index.html">{{ position_index }}<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
+							<a href="">{{ position_index }}<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
 							<section class="dropdown">
 								<ul>
 									<li id="indexposbt_prelong"><a href="/static/index.html">课程简介</a></li>
@@ -59,14 +59,14 @@
 						</li>
 						<!-- <li><a href="./login.html">登录</a></li> -->
 						<li>
-							<a href="/static/chapter-study.html">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
+							<a href="/chapter-study/">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
 							<section class="dropdown">
 								<ul>
-									<li><a href="/static/chapter-study.html">学习区</a></li>
-									<li><a href="/static/chapter-practise.html">作业区</a></li>
-									<li><a href="/static/chapter-test.html">测试区</a></li>
-									<li><a href="/static/chapter-discuss.html">讨论区</a></li>
-									<li><a href="/static/index-unlogin.html">注销</a></li>
+									<li><a href="/chapter-study/">学习区</a></li>
+									<li><a href="/chapter-practise/">作业区</a></li>
+									<li><a href="/chapter-test/">测试区</a></li>
+									<li><a href="/chapter-discuss/">讨论区</a></li>
+									<li><a href="/logout/">注销</a></li>
 								</ul>
 							</section>
 						</li>
@@ -88,14 +88,14 @@
 						</li>
 						<!-- <li><a href="./login.html">登录</a></li> -->
 						<li>
-							<a href="/static/chapter-study.html">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
+							<a href="/chapter-study/">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
 							<section class="dropdown">
 								<ul>
-									<li><a href="/static/chapter-study.html">学习区</a></li>
-									<li><a href="/static/chapter-practise.html">作业区</a></li>
-									<li><a href="/static/chapter-test.html">测试区</a></li>
-									<li><a href="/static/chapter-discuss.html">讨论区</a></li>
-									<li><a href="/static/index-unlogin.html">注销</a></li>
+									<li><a href="/chapter-study/">学习区</a></li>
+									<li><a href="/chapter-practise/">作业区</a></li>
+									<li><a href="/chapter-test/">测试区</a></li>
+									<li><a href="/chapter-discuss/">讨论区</a></li>
+									<li><a href="/logout/">注销</a></li>
 								</ul>
 							</section>
 						</li>
@@ -112,7 +112,7 @@
 				<ul class="slides">
 					<li>
 						<div id="courseVideoDiv" class="video_index_introduction">
-							<video id="courseVideo" class="vjs" data-setup="{}" poster="./css/images/introductionVideo.png" preload="undefined"></video>
+							<video id="courseVideo" class="vjs" data-setup="{}" poster="/static/css/images/introductionVideo.png" preload="undefined"></video>
 						</div>
 					</li>
 					<!-- <li><img src="./css/images/slide3.jpg" alt="" /></li> -->
@@ -122,7 +122,7 @@
 				<ul>
 					<li>
 						<h2>课程简介</h2>
-						<h3> &nbsp; &nbsp;<a href="http://www.nankai.edu.cn">南开大学</a> <a href="http://cs.nankai.edu.cn">软件学院</a> 示范课程</h3>
+						<h3> &nbsp; &nbsp;<a href="http://www.nankai.edu.cn">南开大学</a> <a href="http://cs.nankai.edu.cn/###">软件学院</a> 示范课程</h3>
 						<p> &nbsp; &nbsp;软件工程是是以工程化的思想和方法来指导软件开发的整个过程的学科，具有鲜明的实践性。近年来在计算机和信息管理等领域中，它的地位显得越来越重要。不仅大型软件项目离不开它，就是一般的，甚至小型软件项目也必须运用它的概念、原则和方法。近年来，软件工程学科发生了巨大变化，从传统的结构化技术占主导地位，发展到面向对象技术占主导地位，继而发展到基于构件的技术成为开发技术主流。</p>
 					</li>
 					<!--<li>
@@ -150,9 +150,9 @@
 				</section>
 				<section class="one_half last">
 					<p>学生：已有x个同学报名该课程，其中y个同学完成了课程，z个同学得到了证书</p>
-					<h3><a href="./chapter-study.html">继续学习></a></h3>
+					<h3><a href="/chapter-study/###">继续学习></a></h3>
 					<p>老师：有a位老师为此课程提供教学资源，有b位专业资深人士贡献课程资源</p>
-					<h3><a href="./administrator.html">教师入口></a></h3>
+					<h3><a href="/admin/">教师入口></a></h3>
 				</section>
 			</section>
 		</section>
@@ -165,7 +165,7 @@
 						<section class="container">
 							<ul class="slides">
 								<li>
-									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
+									<h3><a href="###">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
 									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
 
 									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
@@ -201,7 +201,7 @@
 						<h3>章节列表</h3>
 						<section class="container">
 							<ul class="slides">
-								<li><a href="chapter-study.html"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
+								<li><a href="/chapter-study/###"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
 								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第二章</span> <strong>Software Process</strong></a></li>
 								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第三章</span> <strong>Project Management</strong></a></li>
 								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第四章</span> <strong>System Analysis</strong></a></li>
@@ -220,9 +220,9 @@
 						<h3>板块</h3>
 						<section class="container">
 							<ul class="slides">
-								<li id="forumbt"><a href="./forum.html"><img src="/static/css/images/forum.png" alt="blublu讨论区" /></a></li>
-								<li id="homeworkbt"><a href="./homework.html"><img src="/static/css/images/homework.png" alt="blublu讨论区" /></a></li>
-								<li id="testbt"><a href="./test.html"><img src="/static/css/images/test.png" alt="blublu讨论区" /></a></li>
+								<li id="forumbt"><a href="/chapter-discuss/"><img src="/static/css/images/forum.png" alt="blublu讨论区" /></a></li>
+								<li id="homeworkbt"><a href="/chapter-practise"><img src="/static/css/images/homework.png" alt="blublu讨论区" /></a></li>
+								<li id="testbt"><a href="/chapter-test"><img src="/static/css/images/test.png" alt="blublu讨论区" /></a></li>
 							</ul>
 						</section>
 					</li>
@@ -236,7 +236,7 @@
 					<section class="shell">
 						<img src="/static/css/images/avatar.png" alt="" />
 						<h3>南开大学软件学院 副教授 博士生导师<br>研究方向：生物信息、图像处理、模式识别、软件工程教授课程：《软件工程》《数字图像处理》《基于CDIO理念的软件工程课程教学改革与实践》</h3>
-						<p><a href="./introduction.html"><strong>怎么是他！去看看他的介绍></strong></a></p>
+						<p><a href="./###introduction.html"><strong>怎么是他！去看看他的介绍></strong></a></p>
 					</section>
 				</li>
 			</ul>
@@ -251,7 +251,7 @@
 				<ul>
 					<li class="one_third">
 						<h3>相关机构</h3>
-						<a href="http://www.nankai.edu.cn"><img src="/static/css/images/organization_logo.png">
+						<a href="http://www.nankai.edu.cn/###"><img src="/static/css/images/organization_logo.png">
 						</img><p>南开大学</p></a>
 					</li>
 					<li class="one_third">
@@ -280,7 +280,7 @@
 							<h3>其他相关课程</h3>
 		
 							<ul>
-								<li><span class="right"></span> <a href="#">软件过程管理</a></li>
+								<li><span class="right"></span> <a href="###">软件过程管理</a></li>
 								<li><span class="right"></span> <a href="#">软件需求分析</a></li>
 								<li><span class="right"></span> <a href="#">UML建模与实践</a></li>
 								<li><span class="right"></span> <a href="#">软件工程师</a></li>

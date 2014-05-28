@@ -1,22 +1,37 @@
 from django.http import HttpResponse
-
-def hello(request):
-    return HttpResponse("Hello World")
-
-from django.http import HttpResponse
-import datetime
-    
 from django.shortcuts import render_to_response                               ## don't  forget to import
 
 def index(request):
     position_index = "other links"
     return render_to_response('index.html', locals())
 
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
+
+def register(request, template_name):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect("/books/")
+    else:
+        form = UserCreationForm()
+    return render_to_response(template_name, {
+        'form': form,
+        })
+
 #def current_datetime(request):
 #    now = datetime.datetime.now()
 #    html = "<html><body>It is now %s.</body></html>" % now
 #    return HttpResponse(html)
 
+def hello(request):
+    return HttpResponse("Hello World")
+
+from django.http import HttpResponse
+import datetime
 from django.template import Template, Context
 
 def current_datetime(request):
@@ -254,22 +269,6 @@ from django.contrib.auth.decorators import login_required
 #def limited_object_detail(*args, **kwargs):
 #    return detail(*args, **kwargs)
 
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
-
-def register(request, template_name):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            new_user = form.save()
-            return HttpResponseRedirect("/books/")
-    else:
-        form = UserCreationForm()
-    return render_to_response(template_name, {
-        'form': form,
-        })
 
 def create_playlist(request, songs):
     request.user.message_set.create(
