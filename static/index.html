@@ -123,7 +123,7 @@
 					<li>
 						<h2>课程简介</h2>
 						<h3> &nbsp; &nbsp;<a href="http://www.nankai.edu.cn">南开大学</a> <a href="http://cs.nankai.edu.cn/###">软件学院</a> 示范课程</h3>
-						<p> &nbsp; &nbsp;软件工程是是以工程化的思想和方法来指导软件开发的整个过程的学科，具有鲜明的实践性。近年来在计算机和信息管理等领域中，它的地位显得越来越重要。不仅大型软件项目离不开它，就是一般的，甚至小型软件项目也必须运用它的概念、原则和方法。近年来，软件工程学科发生了巨大变化，从传统的结构化技术占主导地位，发展到面向对象技术占主导地位，继而发展到基于构件的技术成为开发技术主流。</p>
+                        <p> &nbsp; &nbsp;{{class_introduction}}</p>
 					</li>
 					<!--<li>
 						<h2>FINAL SLIDE.</h2>
@@ -145,13 +145,13 @@
 			<section class="bigshell">
 				<section class="one_half">
 					<h2>课程统计信息</h2><img src="/static/css/images/index_statsicon.png">
-					<p>课时：8-10小时/周</p>
-					<p>学习量：n章，m次测试，l次作业，获得软件工程师认证</p>
+                    <p>课时：{{class_duration}}</p>
+                    <p>学习量：{{class_outline}}</p>
 				</section>
 				<section class="one_half last">
-					<p>学生：已有x个同学报名该课程，其中y个同学完成了课程，z个同学得到了证书</p>
-					<h3><a href="/chapter-study/###">继续学习></a></h3>
-					<p>老师：有a位老师为此课程提供教学资源，有b位专业资深人士贡献课程资源</p>
+                    <p>学生：已有{{student_count}}个同学报名该课程，其中{{stu_finish_count}}个同学完成了课程，{{stu_cerf_count}}个同学得到了证书</p>
+					<h3><a href="/chapter-study/">继续学习></a></h3>
+                    <p>老师：有{{teacher_count}}位老师为此课程提供教学资源，有{{social_count}}位专业资深人士贡献课程资源</p>
 					<h3><a href="/admin/">教师入口></a></h3>
 				</section>
 			</section>
@@ -236,7 +236,7 @@
 					<section class="shell">
 						<img src="/static/css/images/avatar.png" alt="" />
 						<h3>南开大学软件学院 副教授 博士生导师<br>研究方向：生物信息、图像处理、模式识别、软件工程教授课程：《软件工程》《数字图像处理》《基于CDIO理念的软件工程课程教学改革与实践》</h3>
-						<p><a href="./###introduction.html"><strong>怎么是他！去看看他的介绍></strong></a></p>
+                        <p><a href={{teacher_site}}><strong>怎么是他！去看看他的介绍></strong></a></p>
 					</section>
 				</li>
 			</ul>

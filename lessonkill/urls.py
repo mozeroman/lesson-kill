@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 
         #admin
         url(r'^admin/', include(admin.site.urls)),
+        url(r'autoload/', views.autoload),
 
         #user
         url(r'^register/$', views.register, {'template_name': 'register.html_template'}),
