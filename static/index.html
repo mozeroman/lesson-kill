@@ -202,20 +202,8 @@
 						<section class="container">
 							<ul class="slides">
                                 {% for chapter in chapters %} 
-                                <li><a href="/chapter-study/{{chapter}}"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
+                                <li><a href="/chapter-study/{{chapter.post_chapter}}"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">{{chapter.post_chapter}}</span> <strong>{{chapter.post_title}}</strong></a></li>
                                 {% endfor %}
-                                <li><a href="/chapter-study/{{chapter}}"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
-								<li><a href="/chapter-stydy/#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第二章</span> <strong>Software Process</strong></a></li>
-								<li><a href="/chapter-stydy/#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第三章</span> <strong>Project Management</strong></a></li>
-								<li><a href="/chapter-stydy/#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第四章</span> <strong>System Analysis</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第五章</span> <strong>Requirement Engineer</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第六章</span> <strong>Software Design</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/current.png" alt="" /></span> <span class="right">第七章</span> <strong>User Interface Design</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第八章</span> <strong>Coding</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第九章</span> <strong>Software Test</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第十章</span> <strong>Software Quality Management</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第十一章</span> <strong>Software Configuration Management</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/chapter_none.png" alt="" /></span> <span class="right">第十二章</span> <strong>Software Maintainance</strong></a></li>
 							</ul>
 						</section>
 					</li>

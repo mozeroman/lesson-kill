@@ -12,6 +12,9 @@ from django.template import RequestContext
 def chapter_study(request):
     return render_to_response('chapter-study.html', locals(), context_instance=RequestContext(request))
 
+def chapter_study_num(request, chapter_number):
+    return render_to_response('chapter-study.html', locals(), context_instance=RequestContext(request))
+
 def chapter_practise(request):
     return render_to_response('chapter-practise.html', locals(), context_instance=RequestContext(request))
 

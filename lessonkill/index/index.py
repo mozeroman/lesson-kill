@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response                               ## don't  forget  to import
 from django.template import RequestContext 
 from lessonkill.index.models import Mainindex
+from lessonkill.chapter.models import Post
 
 def index(request):
 
@@ -20,6 +21,11 @@ def index(request):
         class_duration = mainindex.class_duration
         class_outline = mainindex.class_outline
     except Mainindex.DoesNotExist:
+        pass
+
+    try:
+        chapters = Post.objects.filter(post_type = u'chapter')
+    except Post.DoesNotExist:
         pass
 
     student_count = 10;

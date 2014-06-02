@@ -19,6 +19,7 @@ urlpatterns = patterns('',
         #admin
         url(r'^admin/', include(admin.site.urls)),
         url(r'autoload/', views.autoload),
+        url(r'autodelete/', views.autodelete),
 
         #user
         url(r'^register/$', views.register, {'template_name': 'register.html_template'}),
@@ -32,6 +33,7 @@ urlpatterns = patterns('',
 
         #chapter
         url(r'^chapter-study/$', chapter.chapter_study),
+        url(r'^chapter-study/(?P<chapter_number>\w+)/$', chapter.chapter_study_num),
         url(r'^chapter-practise/$', chapter.chapter_practise),
         url(r'^chapter-test/$', chapter.chapter_test),
         url(r'^chapter-discuss/$', chapter.chapter_discuss),
