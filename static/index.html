@@ -166,7 +166,7 @@
 							<ul class="slides">
 								<li>
 									<h3><a href="###">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
-									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+                                    <h6>来自于<strong>教师：{{ teacher.teacher_name }}</strong> 发布于 <strong> {{ teacher.teacher_release_time }} </strong></h6>
 
 									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
 
@@ -174,14 +174,14 @@
 								</li>
 								<li>
 									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
-									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+                                    <h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
 
 									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
 
 									<a href="#" class="continue">查看全部内容</a>
 								</li><li>
 									<h3><a href="#">软件工程与软件过程管理和软件需求分析是什么关系?</a></h3>
-									<h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
+                                    <h6>来自于<strong>教师：韩智</strong> 发布于 <strong>04/20/2014</strong></h6>
 
 									<p>XXBOXXXBOXXBOXXBOXXXBOXXXBOXXXBOXXBOXXBOXXXBOX</p>
 
@@ -201,10 +201,13 @@
 						<h3>章节列表</h3>
 						<section class="container">
 							<ul class="slides">
-								<li><a href="/chapter-study/###"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第二章</span> <strong>Software Process</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第三章</span> <strong>Project Management</strong></a></li>
-								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第四章</span> <strong>System Analysis</strong></a></li>
+                                {% for chapter in chapters %} 
+                                <li><a href="/chapter-study/{{chapter}}"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
+                                {% endfor %}
+                                <li><a href="/chapter-study/{{chapter}}"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第一章</span> <strong>Introduction to Software Engineering</strong></a></li>
+								<li><a href="/chapter-stydy/#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第二章</span> <strong>Software Process</strong></a></li>
+								<li><a href="/chapter-stydy/#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第三章</span> <strong>Project Management</strong></a></li>
+								<li><a href="/chapter-stydy/#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第四章</span> <strong>System Analysis</strong></a></li>
 								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第五章</span> <strong>Requirement Engineer</strong></a></li>
 								<li><a href="#"><span class="icon"><img src="/static/css/images/confirm.png" alt="" /></span> <span class="right">第六章</span> <strong>Software Design</strong></a></li>
 								<li><a href="#"><span class="icon"><img src="/static/css/images/current.png" alt="" /></span> <span class="right">第七章</span> <strong>User Interface Design</strong></a></li>
@@ -235,12 +238,14 @@
 				<li>
 					<section class="shell">
 						<img src="/static/css/images/avatar.png" alt="" />
-						<h3>南开大学软件学院 副教授 博士生导师<br>研究方向：生物信息、图像处理、模式识别、软件工程教授课程：《软件工程》《数字图像处理》《基于CDIO理念的软件工程课程教学改革与实践》</h3>
-                        <p><a href={{teacher_site}}><strong>怎么是他！去看看他的介绍></strong></a></p>
+                        <h3> {{teacher.teacher_name}} </h3>
+                        <h3> {{ teacher.teacher_instruction }} </h3>
+                        <p><a href={{teacher.teacher_website}}><strong>怎么是他！去看看他的介绍></strong></a></p>
 					</section>
 				</li>
 			</ul>
 		</section>
+
 
 		<section id="footer-push"></section>
 	</section>

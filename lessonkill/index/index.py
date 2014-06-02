@@ -27,7 +27,10 @@ def index(request):
     stu_cerf_count = 8;
     teacher_count = 1;
     social_count = 0;
-    teacher_site = 'http://www.nankai.edu.cn'
+    teacher_name = "韩智"
+    teacher_introduction = "南开大学软件学院 副教授 博士生导师 研究方向：生物信息、图像处理、模式识别、软件工程教授课程：《软件工程》《数字图像处理》《基于CDIO理念的软件工程课程教学改革与实践》"
+    teacher_release_time = "04/20/2014"
+    teacher_website = 'http://www.nankai.edu.cn'
     return render_to_response('index.html', locals(), context_instance=RequestContext(request))
 
 #def index_redirect(request):
