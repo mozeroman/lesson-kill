@@ -95,12 +95,13 @@ WSGI_APPLICATION = 'lessonkill.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'SAE_MYSQL_DB', #should create a db in mysql first
-        'USER': 'SAE_MYSQL_USER',
-        'PASSWORD': 'SAE_MYSQL_PASS',
-        'HOST_M': 'SAE_MYSQL_HOST_M',
-        'HOST_S': 'SAE_MYSQL_HOST_S',
-        'PORT': 'SAE_MYSQL_PORT',
+        'NAME': 'test', #should create a db in mysql first
+        'USER': 'root',
+        'PASSWORD': '1112611',
+        #'HOST_M': 'SAE_MYSQL_HOST_M',
+        #'HOST_S': 'SAE_MYSQL_HOST_S',
+        'HOST': 'localhost',
+        'PORT': '8016',
     }
 }
 
