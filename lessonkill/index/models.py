@@ -15,5 +15,13 @@ class Mainindex(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.class_name, self.display_on_index)
 
+class Teacher(models.Model):
+    teacher_name = models.CharField('教师姓名', max_length = 30)
+    teacher_intruduction = models.TextField('教师简介', )
+    teacher_website = models.URLField('教师主页', blank = True)
 
+    teacher_release_time = models.DateTimeField('发布时间', auto_now = True, blank = True)
 
+    def __unicode__(self):
+        return u'%s' % (self)
+ 
