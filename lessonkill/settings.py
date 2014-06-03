@@ -80,7 +80,7 @@ INSTALLED_APPS = (
     'lessonkill.admin',
     'lessonkill.index',
     'lessonkill.chapter',
-    'lessonkill.upload',
+    #'lessonkill.upload',
     )
 
 SITE_ID = 1 #for error, with django.contrib.cites

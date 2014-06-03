@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from lessonkill import views
 from lessonkill.index import index
 from lessonkill.chapter import chapter
-from lessonkill.upload import upload
+#from lessonkill.upload import upload
 from  django.conf import settings
 
 #from django.contrib import admin
@@ -26,8 +26,8 @@ urlpatterns = patterns('',
         url(r'^autodelete/$', views.autodelete),
 
         #upload
-        url(r'^index_upload/$', upload.upload_index, name='home'), #upload index
-        url(r'^upload/$', upload.upload), #upload success status
+        #url(r'^index_upload/$', upload.upload_index, name='home'), #upload index
+        #url(r'^upload/$', upload.upload), #upload success status
 
         #user
         url(r'^register/$', views.register, {'template_name': 'register.html_template'}),
