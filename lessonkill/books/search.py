@@ -4,6 +4,11 @@ from django.shortcuts import  render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from lessonkill.books.models import Account
 
+from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import render_to_response, render 
+from django.template import RequestContext
+
+
 def search_account(request):
     errors = []
     if 'q' in request.GET:
@@ -18,6 +23,7 @@ def search_account(request):
 
     return render_to_response('search_account.html', {'errors': errors})
 
+@csrf_protect
 def account_register(request, template_name):
     if request.method == 'POST':
         account = Account()
@@ -56,13 +62,13 @@ def account_register(request, template_name):
         if errors:
             return render_to_response(template_name, {
                 'errors' : errors,
-                })
+                },  context_instance=RequestContext(request))
         else:
             account.save()
             return HttpResponseRedirect("/accounts/")
     else:
         return render_to_response(template_name, {
-            })
+            },  context_instance=RequestContext(request))
 
 def account_edit(request, account_id, template_name):
     if request.method == 'POST':

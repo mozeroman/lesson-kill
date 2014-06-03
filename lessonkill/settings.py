@@ -46,6 +46,7 @@ SECRET_KEY = '#2zza2@ncn#tc$u0^m1sdv=9zr*u4k#bq4-6xewtztcl*2_cnb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 TEST_DEBUG = False
+#TEST_DEBUG = True
 
 TEMPLATE_DEBUG = True
 TEMPLATE_DIRS = (
