@@ -15,7 +15,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__)).replace('\\', '/')
 ## Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = '' # can't delete it or /admin/ can't loaded
+#HERE = os.path.dirname(os.path.abspath(__file__))
+#STATIC_ROOT = os.path.join(HERE, '/admin/').replace('\\','/')
+#MEDIA_ROOT = os.path.join(HERE, '../media').replace('\\','/')+'/'
+
+#STATIC_ROOT = '' # can't delete it or /admin/ can't loaded
 STATIC_PATH = (
         os.path.join(os.path.dirname(__file__), '../static/').replace('\\', '/'),
         )
@@ -32,7 +36,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 #MEDIA_ROOT = (
 #        os.path.join( os.path.dirname(__file__), '../media/').replace('\\', '/'),
 #        )
-MEDIA_ROOT = os.path.join(HERE, '../media').replace('\\','/')+'/'
+MEDIA_ROOT = os.path.join(HERE, '../media/').replace('\\','/')
 
 ADMIN_MEDIA_PREFIX='/media/'
 ##
