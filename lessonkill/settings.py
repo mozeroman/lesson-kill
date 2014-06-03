@@ -32,7 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 #MEDIA_ROOT = (
 #        os.path.join( os.path.dirname(__file__), '../media/').replace('\\', '/'),
 #        )
-MEDIA_ROOT = os.path.join(HERE, '../../media').replace('\\','/')+'/'
+MEDIA_ROOT = os.path.join(HERE, '../media').replace('\\','/')+'/'
 
 ADMIN_MEDIA_PREFIX='/media/'
 ##
