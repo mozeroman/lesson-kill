@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from lessonkill import views
 from lessonkill.index import index
 from lessonkill.chapter import chapter
+from lessonkill.upload import upload
 from  django.conf import settings
 
 from django.contrib import admin
@@ -15,11 +16,18 @@ admin.autodiscover()
 urlpatterns = patterns('',
         #css, js, png...
         url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_PATH, 'show_indexes':True}),  
+        #media
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT}),
 
         #admin
         url(r'^admin/', include(admin.site.urls)),
-        url(r'autoload/', views.autoload),
-        url(r'autodelete/', views.autodelete),
+        url(r'^autoload/$', views.autoload),
+        url(r'^autodelete/$', views.autodelete),
+
+        #upload
+        url(r'^index_upload/$', upload.upload_index, name='home'), #upload index
+        url(r'^upload/$', upload.upload), #upload success status
+        url(r'^form_upload/$', upload.reg), #upload file from form
 
         #user
         url(r'^register/$', views.register, {'template_name': 'register.html_template'}),

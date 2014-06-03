@@ -27,10 +27,14 @@ STATICFILES_DIRS = (
 ##
 
 ## media and files
-MEDIA_ROOT = (
-        os.path.join( os.path.dirname(__file__), '../media/').replace('\\', '/'),
-        )
 MEDIA_URL = '/media/'
+HERE = os.path.dirname(os.path.abspath(__file__))
+#MEDIA_ROOT = (
+#        os.path.join( os.path.dirname(__file__), '../media/').replace('\\', '/'),
+#        )
+MEDIA_ROOT = os.path.join(HERE, '../../media').replace('\\','/')+'/'
+
+ADMIN_MEDIA_PREFIX='/media/'
 ##
 
 # Quick-start development settings - unsuitable for production
@@ -70,6 +74,7 @@ INSTALLED_APPS = (
     #'lessonkill.blog',
     'lessonkill.index',
     'lessonkill.chapter',
+    'lessonkill.upload',
     )
 
 SITE_ID = 1 #for error, with django.contrib.cites
@@ -77,7 +82,7 @@ SITE_ID = 1 #for error, with django.contrib.cites
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware', # don't know how it works
+    'django.middleware.csrf.CsrfViewMiddleware', 
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
