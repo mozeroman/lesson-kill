@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for error in errors %}
+        <p class="error">{{error}}</p>
+    {% endfor %}
+
+    <ul>
+  <form action="" method="post">
+    {% csrf_token %}
+    <li>    用户名:     <input type="text" name="username" value=""></li>
+    <li>    密码:       <input type="password" name="password" value=""></li>
+
+    <li>    <input type="submit" value="登录" /></li>
+    <input type="hidden" name="next" value="{{ next|escape }}" />
+  </form>
+
+  <li>      如果是新用户，请选择<a href="/../register/">注册</a></li>
+  </ul>
+
+{% endblock %}

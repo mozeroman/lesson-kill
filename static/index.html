@@ -58,6 +58,7 @@
 							</section>
 						</li>
 						<!-- <li><a href="./login.html">登录</a></li> -->
+                        {% if request.user.is_authenticated %}
 						<li>
 							<a href="/chapter-study/">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
 							<section class="dropdown">
@@ -70,40 +71,14 @@
 								</ul>
 							</section>
 						</li>
+                        {% else %}
+                        <li>
+							<a href="/login/">学生登录<span class="arrow"></span></a>
+                        </li>
+                        {% endif %}
 					</ul>
 				</nav>
-				
-				<div id="mobile-nav">
-					<ul>
-						<li>
-							<a href="/static/index.html">位置</a>
-							<ul>
-								<li><a href="/static/index.html">课程简介</a></li>
-								<li><a href="/static/index.html">课程当前统计信息</a></li>
-								<li><a href="/static/index.html">课程计划</a></li>
-								<li><a href="/static/index.html">常问问题</a></li>
-								<li><a href="/static/index.html">教师资料</a></li>
-								<li><a href="/static/index.html">相关链接</a></li>
-							</ul>
-						</li>
-						<!-- <li><a href="./login.html">登录</a></li> -->
-						<li>
-							<a href="/chapter-study/">我的<span class="arrow"></span><img src="/static/css/images/listhint.png"></a>
-							<section class="dropdown">
-								<ul>
-									<li><a href="/chapter-study/">学习区</a></li>
-									<li><a href="/chapter-practise/">作业区</a></li>
-									<li><a href="/chapter-test/">测试区</a></li>
-									<li><a href="/chapter-discuss/">讨论区</a></li>
-									<li><a href="/logout/">注销</a></li>
-								</ul>
-							</section>
-						</li>
-					</ul>
-					
-					<a class="mobile-nav-toggle">+</a>
-				</div>
-				
+								
 			</section>
 		</header>
 
@@ -223,14 +198,16 @@
 		<section id="testimonials">
 			<h2>主讲教师</h2>
 			<ul class="slides">
+            {% for teacher in teachers %}
 				<li>
 					<section class="shell">
-						<img src="/static/css/images/avatar.png" alt="" />
+                        <img src={{teacher.teacher_image}} alt="" />
                         <h3> {{teacher.teacher_name}} </h3>
-                        <h3> {{ teacher.teacher_instruction }} </h3>
+                        <h3> {{ teacher.teacher_introduction }} </h3>
                         <p><a href={{teacher.teacher_website}}><strong>怎么是他！去看看他的介绍></strong></a></p>
 					</section>
 				</li>
+            {%endfor%}
 			</ul>
 		</section>
 

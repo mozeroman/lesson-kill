@@ -1,4 +1,4 @@
-from django.contrib.auth.views import login, logout # professional login logout
+#from django.contrib.auth.views import login, logout # professional login logout
 from django.conf.urls import patterns, include, url
 from lessonkill import views
 from lessonkill.index import index
@@ -28,13 +28,12 @@ urlpatterns = patterns('',
         #upload
         url(r'^index_upload/$', upload.upload_index, name='home'), #upload index
         url(r'^upload/$', upload.upload), #upload success status
-        url(r'^form_upload/$', upload.reg), #upload file from form
 
         #user
         url(r'^register/$', views.register, {'template_name': 'register.html_template'}),
-        url(r'^login/$', login, {'template_name': 'login.html_template'}),
-        url(r'^logout/$', logout, {'template_name': 'logout.html'}),
-        url(r'^accounts/profile/$', views.user_profile),
+        url(r'^login/$', views.login, {'template_name': 'login_view.html'}),
+        url(r'^logout/$', views.logout),
+        #url(r'^accounts/profile/$', views.user_profile),
 
         #index
         url(r'^$', index.index),
