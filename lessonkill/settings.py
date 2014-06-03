@@ -61,7 +61,7 @@ ALLOWED_HOSTS = ['127.0.0.1:8161']
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -70,8 +70,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     #'lessonkill.products',
     #'lessonkill.books',
-    'django.contrib.redirects',
+    #'django.contrib.redirects',
     #'lessonkill.blog',
+    'lessonkill.admin',
     'lessonkill.index',
     'lessonkill.chapter',
     'lessonkill.upload',

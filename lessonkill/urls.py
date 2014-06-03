@@ -6,7 +6,8 @@ from lessonkill.chapter import chapter
 from lessonkill.upload import upload
 from  django.conf import settings
 
-from django.contrib import admin
+#from django.contrib import admin
+from lessonkill import admin
 admin.autodiscover()
 
 #from django.conf.urls. import *
