@@ -20,9 +20,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
 
-@csrf_exempt
+@csrf_protect
 def register(request, template_name):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -33,14 +33,71 @@ def register(request, template_name):
         form = UserCreationForm()
     return render_to_response(template_name, {
         'form': form,
-        })
+        },context_instance=RequestContext(request))
 
-from lessonkill.index.models import Mainindex
+from django.contrib.auth import authenticate, login as user_login, logout as user_logout # login 和 logout不能重复定义
+
+@csrf_protect
+def login(request, template_name):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/../')
+
+    errors = []
+    #tempusername = request.POST.get('username')
+    #temppassword = request.POST.get('password')
+    if request.method == 'POST':
+        tempusername = request.POST.get('username')
+        temppassword = request.POST.get('password')
+        user = authenticate(username=tempusername, password=temppassword)
+        if user is not None:
+            if user.is_active:
+                print 3
+                user_login(request, user)
+                print 4
+                # Redirect to a success page.
+                return HttpResponseRedirect("/../")
+            else:
+                errors.append('用户名未被授权')
+                #login(request, user)
+                # Return a 'disabled account' error message
+                return render_to_response(template_name, {
+                    'errors': errors,
+                    } ,context_instance=RequestContext(request)
+                    )
+        else:
+            errors.append('用户名或密码错误')
+
+    return render_to_response(template_name, {
+        'errors': errors,
+        } ,context_instance=RequestContext(request)
+        )
+    # Return an 'invalid login' error message.
+
+def logout(request):
+    user_logout(request)
+    return HttpResponseRedirect("/../")
+    # Return an 'invalid login' error message.
+
+from lessonkill.index.models import Mainindex, Teacher
 from lessonkill.chapter.models import Post
 
 #auto load
 ##index/index
 def autoload(request):
+
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/')
+
+    try:
+        tempteacher = Teacher.objects.get(teacher_name="韩智")
+    except Teacher.DoesNotExist:
+        tempteacher = Teacher()
+        tempteacher.teacher_name = "韩智"
+        tempteacher.teacher_introduction = "南开大学软件学院 副教授 博士生导师 研究方向：生物信息、图像处理、模式识别、软件工程教授课程：《软件工程》《数字图像处理》《基于CDIO理念的软件工程课程教学改革与实践》"
+        tempteacher.teacher_website = 'http://www.nankai.edu.cn'
+        tempteacher.teacher_image = "/static/css/images/avatar.png"
+        tempteacher.save()
+
     try:
         tempmainindex = Mainindex.objects.get(class_name="LessonKill 软件工程")
     except Mainindex.DoesNotExist:
@@ -61,6 +118,7 @@ def autoload(request):
         temppost.post_title = "Introduction to Software Engineering"
         temppost.post_chapter = "第一章"
         temppost.post_index = "Introduction to Software Engineering"
+        temppost.post_video = "/static/css/images/introductionVideo.png"
         temppost.save()
         temppost = Post()
         temppost.post_title = "Software Process"
@@ -123,6 +181,15 @@ def autoload(request):
 
 
 def autodelete(request):
+
+    if not request.user.is_authenticated():
+        return HttpResponseRedirect('/login/')
+
+    try:
+        Teacher.objects.filter(teacher_name="韩智").delete()
+    except Teacher.DoesNotExist:
+        pass
+
     try:
         Mainindex.objects.filter(class_name="LessonKill 软件工程").delete()
     except Mainindex.DoesNotExist:
