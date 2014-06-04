@@ -17,6 +17,8 @@ class Post(models.Model):
     post_index = models.TextField('内容', )
     post_date = models.DateTimeField('发布时间', auto_now = True, blank = True)
     post_deadline = models.DateTimeField('截止日期', default = datetime.now, ) ### 不明原因不能为空
+    post_ppt = models.FileField('附件', upload_to=post_type, blank=True)
+    post_video = models.FileField('附件', upload_to=post_type, blank=True)
 
     class Meta:
         ordering = ['post_chapter']

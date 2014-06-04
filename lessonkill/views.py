@@ -118,6 +118,7 @@ def autoload(request):
         temppost.post_title = "Introduction to Software Engineering"
         temppost.post_chapter = "第一章"
         temppost.post_index = "Introduction to Software Engineering"
+        temppost.post_video = "/static/css/images/introductionVideo.png"
         temppost.save()
         temppost = Post()
         temppost.post_title = "Software Process"
